@@ -1,0 +1,30 @@
+
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+{% load static %}
+<div class="home_image_title">
+    <img src="{% static 'portfolio/Image1.png' %}" alt="a pic of blog owner" width="400" height="300">
+    <h1>Nwakanma's first try at creating a live website!! This has taken many many painful hours. Kindly ignore the two lovely ladies making the love sign</h1>
+</div>
+<br>
+<br>
+<h3>Dummy Portfolios</h3>
+<hr>
+<br>
+<div class="porfolios">
+    {% for project in projects %}
+    <div class="porfolio_items">
+        <a href="{{ project.url}}">
+            <img src="{{ project.image.url}}" height=100>
+            <h6>{{ project.title }}</h6>
+            <p>{{ project.description }}</p>
+        </a>
+        <!--{% if project.url %}
+        
+        {% endif %}-->
+    </div>
+    {% endfor %}
+    
+</div>
+{% endblock %}

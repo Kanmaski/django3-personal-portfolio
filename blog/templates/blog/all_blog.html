@@ -1,0 +1,18 @@
+{% extends 'portfolio/base.html' %}
+
+{% block content %}
+<div class="all_blog_home">
+    <h1>Welcome to Nwakanma's blog</h1>
+    <h4>Nwakanma has written {{ blogs.count }} fake blog{{ blogs.count|pluralize}}</h4>
+</div>
+{% for blog in blogs %}
+<div class="blog_post" id="{{blog.title}}">
+    <h4><a href="{% url 'blog:detail' blog.title %}">{{blog.title}}</a></h4>
+    <p>{{blog.pub_date}}</p>
+    <article>
+        {{blog.post|truncatechars:200}}
+    </article>
+</div>
+{% endfor %}
+
+{% endblock %}
